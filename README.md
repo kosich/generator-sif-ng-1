@@ -7,7 +7,7 @@ First, install [Yeoman](http://yeoman.io) and generator-siftery-ng-1-component u
 
 ```bash
 npm install -g yo
-npm install -g generator-siftery-ng-1-component
+npm link
 ```
 
 Then generate your new project:
