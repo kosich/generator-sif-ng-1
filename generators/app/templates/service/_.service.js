@@ -5,4 +5,4 @@ function <%= service_name %>(){ 'ngInject';
   };
 }
 
-export default { name: '<%= service_name %>', <%= service_name %> };
+export default { name: '<%= service_name %>', service: <%= service_name %> };
