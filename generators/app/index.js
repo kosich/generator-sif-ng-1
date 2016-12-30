@@ -3,8 +3,10 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
-var changeCase = require('change-case')
 
+const component_generator = require('./component.generator');
+const service_generator = require('./service.generator');
+const generators = [ component_generator, service_generator ];
 
 module.exports = yeoman.Base.extend({
   //Configurations will be loaded here.
@@ -15,56 +17,30 @@ module.exports = yeoman.Base.extend({
       'Welcome to the superior ' + chalk.red('generator-siftery-ng-1-component') + ' generator!'
     ));
 
-    var prompts = [{
-      type: 'input',
-      name: 'name',
-      message: 'What is the component name?',
-      default: this.appname
+    const prompts = [{
+      type: 'list',
+      name: 'generator',
+      message: 'What shall you generate?',
+      choices: [
+        { name: 'component', value: component_generator },
+        { name: 'service', value: service_generator }
+      ],
+      default: 0
     }];
 
-    return this.prompt(prompts).then(function (props) {
-      // To access props later use this.props.someAnswer;
-      this.props = props;
-    }.bind(this));
+    // To access props later use this.props.someAnswer;
+    return this
+      .prompt(prompts)
+      .then((props)=>{
+        this.props = props;
+        return props.generator.prompt(this);
+      })
+      .then(props=>{
+        return Object.assign(this.props, props);
+      });
   },
   writing: function () {
-      console.log('called');
-
-      var name = changeCase.camel(this.props.name);
-      var file_name  = changeCase.paramCase(this.props.name);
-      var component_name = 'si' + changeCase.pascalCase(this.props.name);
-
-      this.fs.copyTpl(
-        this.templatePath('_.index.js'),
-        this.destinationPath('index.js'), {
-          name: name,
-          file_name: file_name,
-          component_name: component_name
-        }
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('_.component.js'),
-        this.destinationPath(file_name + '.component.js'), {
-          name: name,
-          file_name: file_name
-        }
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('_.component.html'),
-        this.destinationPath(file_name + '.component.html'), {
-          name: name,
-          file_name: file_name
-        }
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('_.component.controller.js'),
-        this.destinationPath(file_name + '.component.controller.js'), {
-          name: name,
-          file_name: file_name
-        }
-      );
+    console.log('generating');
+    this.props.generator.generate(this);
   }
 });
