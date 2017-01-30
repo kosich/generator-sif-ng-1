@@ -6,7 +6,8 @@ var yosay = require('yosay');
 
 const component_generator = require('./component.generator');
 const service_generator = require('./service.generator');
-const generators = [ component_generator, service_generator ];
+const overlay_generator = require('./overlay.generator');
+const generators = [ component_generator, service_generator, overlay_generator];
 
 module.exports = yeoman.Base.extend({
   //Configurations will be loaded here.
@@ -23,7 +24,8 @@ module.exports = yeoman.Base.extend({
       message: 'What shall you generate?',
       choices: [
         { name: 'component', value: component_generator },
-        { name: 'service', value: service_generator }
+        { name: 'service', value: service_generator },
+        { name: 'overlay', value: overlay_generator }
       ],
       default: 0
     }];
