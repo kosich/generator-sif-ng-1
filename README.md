@@ -1,19 +1,34 @@
-# generator-siftery-ng-1-component [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> 
+# generator-siftery-ng-1
+
+Angular 1 generator for following entities
+
+- component
+
+- service
+
+- overlay
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-siftery-ng-1-component using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+- Install [Yeoman](http://yeoman.io)
+
+- Clone this repo
+
+- `cd` to it
+
+- create a link in local npm registry to current package
 
 ```bash
 npm install -g yo
+git clone https://github.com/kosich/generator-siftery-ng-1
+cd generator-siftery-ng-1
 npm link
 ```
 
 Then generate your new project:
 
 ```bash
-yo siftery-ng-1-component
+yo siftery-ng-1
 ```
 
 ## Getting To Know Yeoman
@@ -25,12 +40,4 @@ yo siftery-ng-1-component
 
 ## License
 
-Apache-2.0 © [Kostiantyn Palchyk]()
-
-
-[npm-image]: https://badge.fury.io/js/generator-siftery-ng-1-component.svg
-[npm-url]: https://npmjs.org/package/generator-siftery-ng-1-component
-[travis-image]: https://travis-ci.org/kosich/generator-siftery-ng-1-component.svg?branch=master
-[travis-url]: https://travis-ci.org/kosich/generator-siftery-ng-1-component
-[daviddm-image]: https://david-dm.org/kosich/generator-siftery-ng-1-component.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/kosich/generator-siftery-ng-1-component
+Apache-2.0 © [siftery](siftery.com)

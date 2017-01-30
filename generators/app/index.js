@@ -15,7 +15,7 @@ module.exports = yeoman.Base.extend({
   prompting: function() {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the superior ' + chalk.red('generator-siftery-ng-1-component') + ' generator!'
+      'Welcome to the superior ' + chalk.red('generator-siftery-ng-1') + ' generator!'
     ));
 
     const prompts = [{

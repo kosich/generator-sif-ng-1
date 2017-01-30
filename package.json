@@ -1,7 +1,7 @@
 {
-  "name": "generator-siftery-ng-1-component",
+  "name": "generator-siftery-ng-1",
   "version": "0.0.1",
-  "description": "generates components for siftery.com angular 1",
+  "description": "generates angular 1 entities for siftery",
   "homepage": "",
   "private": true,
   "author": {
@@ -15,7 +15,6 @@
   "main": "generators/index.js",
   "keywords": [
     "angular",
-    "component",
     "yeoman-generator"
   ],
   "dependencies": {
@@ -44,7 +43,7 @@
       "mocha": true
     }
   },
-  "repository": "kosich/generator-siftery-ng-1-component",
+  "repository": "kosich/generator-siftery-ng-1",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"
